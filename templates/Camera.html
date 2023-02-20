@@ -1,0 +1,21 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block title %}Quan sát{% endblock title %}
+{% block nav %}
+    <a href="{% url 'Display:Home' %}" class="nav-item nav-link"><i class="fa-solid fa-house me-2"></i>Trang chủ</a>
+    <a href="{% url 'Display:Camera' %}" class="nav-item nav-link active"><i class="fa-regular fa-eye me-2"></i>Quan sát</a>
+    <a href="#" class="nav-item nav-link"><i class="fas fa-info-circle me-2"></i>Thông tin cây trồng</a>
+    <a href="#" class="nav-item nav-link"><i class="fa-solid fa-gears me-2"></i>Cài đặt</a>
+{% endblock nav %}
+
+{% block main %}
+    <div class="container-fluid pt-4 px-4" id="containter">
+        <div class="tv-frame row w-100 justify-content-center">
+            <video id="video" class="d-flex align-items-center justify-content-center screen col-12" autoplay></video>
+        </div>
+    </div>
+{% endblock main %}
+
+{% block script %}
+    <script src="{% static 'js/Camera.js' %}"></script>
+{% endblock script %}
