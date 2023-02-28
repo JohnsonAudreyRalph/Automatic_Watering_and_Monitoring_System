@@ -9,9 +9,44 @@
 {% endblock nav %}
 
 {% block main %}
-    <div class="container-fluid pt-4 px-4" id="containter">
-        <div class="tv-frame row w-100 justify-content-center">
-            <video id="video" class="d-flex align-items-center justify-content-center screen col-12" autoplay></video>
+    <div class="pt-2 px-4" id="containter">
+        <div class="container-fluid pt-2 px-4">
+            <div class="row g-4">
+                <div class="col-sm-12 col-xl-6">
+                    <video class="col-sm-12" id="video" autoplay></video>
+                </div>
+                <div class="col-sm-12 col-xl-6">
+                    <div class="text-center rounded p-4 pt-5">
+                        <div class="card">
+                            <div class="ms-3">
+                                <p class="mb-2">Chiều cao của cây trồng</p>
+                                <h6 class="mb-2">150m</h6>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="ms-3">
+                                <p class="mb-2">Trạng thái cây trồng</p>
+                                <h6 class="mb-2">Không sâu bệnh</h6>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="ms-3">
+                                <p class="mb-2">Trạng thái thu hoạch</p>
+                                <h6 class="mb-2">Chưa thể thu hoạch</h6>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="ms-3">
+                                <p class="mb-2">Tình trạng sức khỏe cây trồng</p>
+                                <h6 class="mb-2">Đang sống ổn định</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock main %}
