@@ -39,6 +39,13 @@ $(document).ready(function(){
     // Cảnh báo
     database.ref("/CANH_BAO").on("value", function(snapshot){
         var warning = snapshot.val();
-        document.getElementById('warning').innerHTML = warning;
+        if(warning == ' ')
+        {
+            document.getElementById("displ").style.display = 'none';
+        }
+        if (warning == 'CẢM BIẾN ĐỘ ẨM ĐẤT HOẶC MÁY BƠM BỊ HỎNG !')
+        {
+            document.getElementById('warning').innerHTML = warning;
+        }
     });
 })

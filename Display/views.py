@@ -31,17 +31,17 @@ def Camera(req):
     new = sentences[1]
     tim = new.split("_")[1]
     tim = tim.split(".")[0]
-    print('Kết quả')
+    # print('Kết quả')
     SHOW = folder_path + 'image_' + tim + '.jpg'
     PATH = 'static/img/CAMERA/image_' + tim + '.jpg'
-    print('Đây là PATH: ', PATH)
-    print('Đây là  WEB: ', SHOW)
+    # print('Đây là PATH: ', PATH)
+    # print('Đây là  WEB: ', SHOW)
     image = Image.open(PATH) # Mở hình ảnh ra
     image = image.resize((256, 256))
     Img = np.expand_dims(image, axis=0)
     predictions = MODEL.predict(Img)
     predicted_class = CLASS_NAMES[np.argmax(predictions[0])]
-    print('Dự đoán: ', predicted_class)
+    # print('Dự đoán: ', predicted_class)
     # Tình trạng sức khỏe
     img = cv2.imread(PATH)
     img = cv2.resize(img, (450, 450))
@@ -51,9 +51,9 @@ def Camera(req):
     bin_value_blue = hist_blue[128]
     bin_value_green = hist_green[128]
     bin_value_red = hist_red[128]
-    print('Kết quả của bin_value_blue: ', bin_value_blue)
-    print('Kết quả của bin_value_green: ', bin_value_green)
-    print('Kết quả của bin_value_red: ', bin_value_red)
+    # print('Kết quả của bin_value_blue: ', bin_value_blue)
+    # print('Kết quả của bin_value_green: ', bin_value_green)
+    # print('Kết quả của bin_value_red: ', bin_value_red)
     if predicted_class == 'Khỏe mạnh':
         KQ = "Cây sống"
     else:
