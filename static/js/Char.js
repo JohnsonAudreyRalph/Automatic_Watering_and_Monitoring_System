@@ -1,29 +1,4 @@
-function GetJSONData(){
-    URL_JSON = "https://api.open-meteo.com/v1/forecast?latitude=21.59&longitude=105.85&hourly=temperature_2m,relativehumidity_2m&current_weather=true&timezone=Asia%2FBangkok&start_date=2023-02-16&end_date=2023-02-16";
-    fetch(URL_JSON)
-        .then(response => response.json())
-        .then(Json =>{
-            time = Json["hourly"]["time"]; // Thời gian
-            temperature = Json["hourly"]["temperature_2m"]; // Thời gian
-            humidity = Json["hourly"]["relativehumidity_2m"]; // Thời gian
-            // console.log(time);
-            let Data_Time = [];
-            let Data_Temperature = [];
-            let Data_Humidity = [];
-            time.forEach(time => {
-                Data_Time.push(time);
-            });
-            temperature.forEach(temperature => {
-                Data_Temperature.push(temperature);
-            });
-            humidity.forEach(humidity => {
-                Data_Humidity.push(humidity);
-            });
-    })
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-    setInterval(GetJSONData, 300);
     new ApexCharts(document.querySelector("#reportsChart"), {
         series: [{
             name: 'Nhiệt độ',

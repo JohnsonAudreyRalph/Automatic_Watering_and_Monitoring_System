@@ -34,7 +34,19 @@ a{
 }
 
 /* ===================================================== */
+.alert {
+    background-color: #f44336; /* Màu đỏ */
+    color: white; /* Chữ màu trắng */
+    font-weight: bold; /* Chữ đậm */
+    padding: 10px; /* Khoảng cách giữa cảnh báo và nội dung bên trong */
+    animation: blinker 1s linear infinite;
+}
 
+@keyframes blinker {
+    50% {
+        background-color: #ffbdbd; /* màu sáng hơn */
+    }
+}
 /* ===================================================== */
 
 #spinner{

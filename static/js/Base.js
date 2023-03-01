@@ -24,11 +24,7 @@ $(document).ready(function(){
         fetch(URL_JSON)
           .then(response => response.json())
           .then(Json =>{
-            temperature = Json["current_weather"]["temperature"]; // Nhiệt độ
-            winddirection = Json["current_weather"]["winddirection"]; // Độ ẩm
-            weathercode = Json["current_weather"]["weathercode"]; // Mã thời tiết
             time = Json["current_weather"]["time"]; // Thời gian
-
             // console.log(time);
             var Split_Time = time.split("T")[0]; // Tách được thời gian với ngày tháng ==> Lấy được ngày tháng
             var Take_The_Time = time.split("T")[1]; // Lấy được thời gian
@@ -39,8 +35,6 @@ $(document).ready(function(){
             document.getElementById('Day').innerHTML = Get_Day;
             document.getElementById('Month').innerHTML = Get_Month;
             document.getElementById('Year').innerHTML = Get_Year;
-
-            // var NhietDo = document.getElementById('NhietDo');
         })
     }
     setInterval(GetJSON, 300);

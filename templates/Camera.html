@@ -4,7 +4,7 @@
 {% block nav %}
     <a href="{% url 'Display:Home' %}" class="nav-item nav-link"><i class="fa-solid fa-house me-2"></i>Trang chủ</a>
     <a href="{% url 'Display:Camera' %}" class="nav-item nav-link active"><i class="fa-regular fa-eye me-2"></i>Quan sát</a>
-    <a href="#" class="nav-item nav-link"><i class="fas fa-info-circle me-2"></i>Thông tin cây trồng</a>
+    <a href="{% url 'Display:Infomation' %}" class="nav-item nav-link"><i class="fas fa-info-circle me-2"></i>Thông tin cây trồng</a>
     <a href="#" class="nav-item nav-link"><i class="fa-solid fa-gears me-2"></i>Cài đặt</a>
 {% endblock nav %}
 
@@ -13,21 +13,21 @@
         <div class="container-fluid pt-2 px-4">
             <div class="row g-4">
                 <div class="col-sm-12 col-xl-6">
-                    <video class="col-sm-12" id="video" autoplay></video>
+                    <img id="links" src="{% static 'img/CAMERA/' %}{{ NEW }}" alt="" class="img-fluid">
                 </div>
                 <div class="col-sm-12 col-xl-6">
                     <div class="text-center rounded p-4 pt-5">
                         <div class="card">
                             <div class="ms-3">
                                 <p class="mb-2">Chiều cao của cây trồng</p>
-                                <h6 class="mb-2">150m</h6>
+                                <h6 class="mb-2"></h6>
                             </div>
                         </div>
 
                         <div class="card">
                             <div class="ms-3">
                                 <p class="mb-2">Trạng thái cây trồng</p>
-                                <h6 class="mb-2">Không sâu bệnh</h6>
+                                <h6 class="mb-2">{{KQ}}</h6>
                             </div>
                         </div>
 
@@ -41,7 +41,7 @@
                         <div class="card">
                             <div class="ms-3">
                                 <p class="mb-2">Tình trạng sức khỏe cây trồng</p>
-                                <h6 class="mb-2">Đang sống ổn định</h6>
+                                <h6 class="mb-2">{{predicted_class}}</h6>
                             </div>
                         </div>
                     </div>
@@ -52,5 +52,16 @@
 {% endblock main %}
 
 {% block script %}
-    <script src="{% static 'js/Camera.js' %}"></script>
+    <script>
+        setInterval(function() {
+            $.ajax({
+                url: "/camera",
+                success: function(data) {
+                    var newImageUrl = "{% static 'img/CAMERA/' %}{{ NEW }}";
+                    var imageElement = document.getElementById("links");
+                    imageElement.setAttribute("src", newImageUrl);
+                }
+            });
+        }, 100);
+    </script>
 {% endblock script %}
